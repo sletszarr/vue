@@ -6,10 +6,12 @@
 </head>
 <body>
 <div id="app">
-    <button v-on:click="increase">Increase</button>
-    <button v-on:click="decrease">Decrease</button>
-    <p> {{ counter }} </p>
-    <p> {{ result }} </p>
+    <button v-on:click="counter++">Increase</button>
+    <button v-on:click="counter--">Decrease</button>
+    <button v-on:click="secondCounter++">Increase Second</button>
+    <p> counter: {{ counter }} </p>
+    <p> second counter: {{ secondCounter }} </p>
+    <p> {{ result() }} | {{ output }} </p>
 </div>
 
 <script src="../vue.js"></script>
@@ -18,16 +20,20 @@
         el: '#app',
         data: {
             counter: 0,
-            result: ''
+            secondCounter: 0
+        },
+        computed: {
+            // hanya dipanggil saat this.counter berubah
+            output: function () {
+                console.log('computed');
+                return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
+            }
         },
         methods: {
-            increase: function () {
-                this.counter++;
-                this.result = this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
-            },
-            decrease: function () {
-                this.counter--;
-                this.result = this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
+            // dipanggil setiap kali property di data berubah
+            result: function () {
+                console.log('methods');
+                return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
             }
         }
     });
