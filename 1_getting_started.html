@@ -7,6 +7,7 @@
 <body>
 <div id="app">
     <input type="text">
+    <h1 v-once> {{ title }}</h1>
     <p> {{ sayHello() }} - <a v-bind:href="link">Google</a></p>
     <p v-html="finishedLink"></p>
 </div>
@@ -22,6 +23,7 @@
         },
         methods: {
             sayHello: function() {
+                this.title = 'Olla dunia!';
                 return this.title;
             }
         }
