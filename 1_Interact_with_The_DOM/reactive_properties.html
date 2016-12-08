@@ -29,6 +29,18 @@
                 return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
             }
         },
+        watch: {
+            // dipanggil setiap kali this.counter berubah
+            // bisa async
+            // namanya harus sama dengan nama property yang di watch
+            counter: function (value) {
+                var vm = this;
+                setTimeout(function () {
+                    console.log("set time out ran")
+                    vm.counter = 0;
+                }, 2000);
+            }
+        },
         methods: {
             // dipanggil setiap kali property di data berubah
             result: function () {
