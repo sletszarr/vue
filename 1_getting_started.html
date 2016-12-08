@@ -7,7 +7,7 @@
 <body>
 <div id="app">
     <input type="text">
-    <p> {{ title }}</p>
+    <p> {{ sayHello() }}</p>
 </div>
 
 <script src="vue.js"></script>
@@ -16,6 +16,11 @@
         el: '#app',
         data: {
             title: 'Hello world'
+        },
+        methods: {
+            sayHello: function() {
+                return "olla!";
+            }
         }
     });
 </script>
