@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 3</title>
+</head>
+<body>
+<div id="exercise">
+
+    <!-- 1. Show a result of 'not there yet' if value !== 37 -->
+    <!--    you can change value with buttons -->
+    <!--    print 'done' once you did it -->
+    <div>
+        <p>Current value: {{ value }} </p>
+        <button @click="value += 5">Add 5</button>
+        <button @click="value += 1">Add 1</button>
+        <p> {{ result }} </p>
+    </div>
+
+    <!--  -->
+    <div>
+        <input type="text" v-model="duration">
+        <p> {{ result }} </p>
+    </div>
+
+</div>
+
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el: '#exercise',
+        data: {
+            value: 0,
+            duration: 5000
+        },
+        computed: {
+            result: function () {
+                console.log('called');
+                return this.value === 37 ? 'done' : 'not there yet';
+            }
+        },
+        watch: {
+            result: function () {
+                var vm = this;
+                setTimeout(function () {
+                    vm.value = 0;
+                }, vm.duration);
+            }
+        }
+    });
+</script>
+</body>
+</html>
