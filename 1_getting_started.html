@@ -7,7 +7,7 @@
 <body>
 <div id="app">
     <input type="text">
-    <p> {{ sayHello() }}</p>
+    <p> {{ sayHello() }} - <a v-bind:href="link">Google</a></p>
 </div>
 
 <script src="vue.js"></script>
@@ -15,7 +15,8 @@
     new Vue({
         el: '#app',
         data: {
-            title: 'Hello world'
+            title: 'Hello world',
+            link: 'http://www.google.com'
         },
         methods: {
             sayHello: function() {
