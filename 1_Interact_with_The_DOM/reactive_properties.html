@@ -6,8 +6,10 @@
 </head>
 <body>
 <div id="app">
-    <input type="text" v-model="name">
-    <p> {{ name }} </p>
+    <button v-on:click="increase">Increase</button>
+    <button v-on:click="decrease">Decrease</button>
+    <p> {{ counter }} </p>
+    <p> {{ result }} </p>
 </div>
 
 <script src="../vue.js"></script>
@@ -15,7 +17,18 @@
     new Vue({
         el: '#app',
         data: {
-            name: 'Badinga Ranoma'
+            counter: 0,
+            result: ''
+        },
+        methods: {
+            increase: function () {
+                this.counter++;
+                this.result = this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
+            },
+            decrease: function () {
+                this.counter--;
+                this.result = this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
+            }
         }
     });
 </script>
