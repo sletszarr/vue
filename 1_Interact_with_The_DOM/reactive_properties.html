@@ -6,12 +6,15 @@
 </head>
 <body>
 <div id="app">
-    <button v-on:click="counter++">Increase</button>
-    <button v-on:click="counter--">Decrease</button>
-    <button v-on:click="secondCounter++">Increase Second</button>
+    <button @click="counter++">Increase</button>
+    <button @click="counter--">Decrease</button>
+    <button @click="secondCounter++">Increase Second</button>
     <p> counter: {{ counter }} </p>
     <p> second counter: {{ secondCounter }} </p>
     <p> {{ result() }} | {{ output }} </p>
+
+    <!-- v-bind shortcut -->
+    <a :href="link">Google</a>
 </div>
 
 <script src="../vue.js"></script>
@@ -20,7 +23,8 @@
         el: '#app',
         data: {
             counter: 0,
-            secondCounter: 0
+            secondCounter: 0,
+            link: 'http://www.google.com'
         },
         computed: {
             // hanya dipanggil saat this.counter berubah
